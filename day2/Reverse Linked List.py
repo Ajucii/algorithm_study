@@ -1,4 +1,10 @@
+# 문제 : 연결리스트를 뒤집어라
 
+# 입력 : 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+# 출력 : 5 -> 4 -> 3 -> 2 -> 1 -> NULL
+
+
+# 연결리스트 만들기
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -6,7 +12,8 @@ class ListNode:
 
 
 class Solution:
-    # 재귀 구조로 뒤집기
+
+    # 풀이 1. 재귀 구조로 뒤집기
     def reverseListRecur(self, head: ListNode) -> ListNode:
         # 다음 노드 next와 현재 노드 node를 파라미터로 지정한 함수를 계속해서 재귀 호출.
         def reverse(node: ListNode, prev: ListNode = None):
@@ -22,7 +29,7 @@ class Solution:
 
 
 
-    # 반복 구조로 뒤집기
+    # 풀이 2. 반복 구조로 뒤집기
     def reverseListList(self, head: ListNode) -> ListNode:
         node, prev = head, None
 
@@ -35,8 +42,8 @@ class Solution:
 
         return prev
 
+    # 출력 함수
     def print_list(self, list):
-
         while list:
             if list.next:
                 print(list.val, ' -> ', end='')
@@ -46,3 +53,5 @@ class Solution:
 
 
 Solution().print_list(Solution().reverseListList(ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))))
+
+
